@@ -114,18 +114,5 @@ def bonneCouleurPieceChoisie(piece,couleurDuJoueur):
 
 def dansLEchiquier(coordx,coordy):
     """On vérifie que les coordonnées prises sont bien entre 0 et 7 inclus"""
-    if (coordx >= 0 and coordx < 8 )and( coordy >=0 and coordy <8):
-        return True
-    else:
-        return False
+    return (coordx >= 0 and coordx < 8 ) and ( coordy >= 0 and coordy < 8)
 
-
-
-def tempsSecoule():
-    global timerJoueurBlanc
-    timerJoueurBlanc -=1
-    pygame.time.delay(1000)
-    print("Le joueur",couleurDuJoueur,"possède encore :",timerJoueurBlanc,"secondes")
-    if timerJoueurBlanc == 0:
-        print("Plus de temps")
-        return False
