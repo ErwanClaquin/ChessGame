@@ -451,27 +451,27 @@ def casesPossibles (piece, positionDepartX, positionDepartY, couleurEnnemi) :
         elif (piece[1] == 'blanc' and roiBlancEnEchec()) or (piece[1] == 'noir' and roiNoirEnEchec()):
             while dansLEchiquier(positionDepartX + nombreDeDeplacementSurLaDroiteEtLeBas + 1, positionDepartY + nombreDeDeplacementSurLaDroiteEtLeBas + 1) and (echiquier[positionDepartX + nombreDeDeplacementSurLaDroiteEtLeBas+1, positionDepartY+nombreDeDeplacementSurLaDroiteEtLeBas+1][1]!= changeCouleurDuJoueur(couleurEnnemi) and echiquier[positionDepartX + nombreDeDeplacementSurLaDroiteEtLeBas, positionDepartY+ nombreDeDeplacementSurLaDroiteEtLeBas][1]!= couleurEnnemi):
                 nombreDeDeplacementSurLaDroiteEtLeBas += 1
-                savePieceCaseArrive = echiquier[positionDepartX + nombreDeDeplacementSurLaDroiteEtLeBas + 1, positionDepartY + nombreDeDeplacementSurLaDroiteEtLeBas + 1]
-                echiquier[positionDepartX + nombreDeDeplacementSurLaDroiteEtLeBas + 1, positionDepartY + nombreDeDeplacementSurLaDroiteEtLeBas + 1] = ['fou', changeCouleurDuJoueur(couleurEnnemi)]
+                savePieceCaseArrive = echiquier[positionDepartX + nombreDeDeplacementSurLaDroiteEtLeBas, positionDepartY + nombreDeDeplacementSurLaDroiteEtLeBas]
+                echiquier[positionDepartX + nombreDeDeplacementSurLaDroiteEtLeBas, positionDepartY + nombreDeDeplacementSurLaDroiteEtLeBas] = ['fou', changeCouleurDuJoueur(couleurEnnemi)]
                 echiquier[positionDepartX, positionDepartY] = ['vide', 'incolore']
                 if (piece[1] == 'blanc' and not roiBlancEnEchec()) or (piece[1] == 'noir' and not roiNoirEnEchec()):
                     selection.fill((0, 0, 255, 80))
                     ecran.blit(selection,((positionDepartX + nombreDeDeplacementSurLaDroiteEtLeBas) * TailleCases, (positionDepartY + nombreDeDeplacementSurLaDroiteEtLeBas) * TailleCases))
-                    echiquier[positionDepartX + nombreDeDeplacementSurLaDroiteEtLeBas + 1, positionDepartY + nombreDeDeplacementSurLaDroiteEtLeBas + 1] = savePieceCaseArrive
+                    echiquier[positionDepartX + nombreDeDeplacementSurLaDroiteEtLeBas, positionDepartY + nombreDeDeplacementSurLaDroiteEtLeBas] = savePieceCaseArrive
 
                     return False
                 elif (piece[1] == 'blanc' and roiBlancEnEchec()) or (piece[1] == 'noir' and roiNoirEnEchec()):
                     echiquier[positionDepartX + nombreDeDeplacementSurLaDroiteEtLeBas + 1, positionDepartY + nombreDeDeplacementSurLaDroiteEtLeBas + 1] = savePieceCaseArrive
 
-            while dansLEchiquier(positionDepartX - (nombreDeDeplacementSurLaGaucheEtLeBas + 1), positionDepartY + nombreDeDeplacementSurLaGaucheEtLeBas + 1 ) and (echiquier[positionDepartX - (nombreDeDeplacementSurLaGaucheEtLeBas + 1), positionDepartY + nombreDeDeplacementSurLaGaucheEtLeBas + 1][1] != changeCouleurDuJoueur(couleurEnnemi) and echiquier[positionDepartX - nombreDeDeplacementSurLaGaucheEtLeBas, positionDepartY + nombreDeDeplacementSurLaGaucheEtLeBas][1] != couleurEnnemi):
+            while dansLEchiquier(positionDepartX - (nombreDeDeplacementSurLaGaucheEtLeBas + 1), positionDepartY + nombreDeDeplacementSurLaGaucheEtLeBas + 1) and (echiquier[positionDepartX - (nombreDeDeplacementSurLaGaucheEtLeBas + 1), positionDepartY + nombreDeDeplacementSurLaGaucheEtLeBas + 1][1] != changeCouleurDuJoueur(couleurEnnemi) and echiquier[positionDepartX - nombreDeDeplacementSurLaGaucheEtLeBas, positionDepartY + nombreDeDeplacementSurLaGaucheEtLeBas][1] != couleurEnnemi):
                 nombreDeDeplacementSurLaGaucheEtLeBas += 1
                 savePieceCaseArrive = echiquier[positionDepartX - (nombreDeDeplacementSurLaGaucheEtLeBas ), positionDepartY + nombreDeDeplacementSurLaGaucheEtLeBas ]
-                echiquier[positionDepartX - (nombreDeDeplacementSurLaGaucheEtLeBas ), positionDepartY + nombreDeDeplacementSurLaGaucheEtLeBas] = ['fou', changeCouleurDuJoueur(couleurEnnemi)]
+                echiquier[positionDepartX - (nombreDeDeplacementSurLaGaucheEtLeBas), positionDepartY + nombreDeDeplacementSurLaGaucheEtLeBas] = ['fou', changeCouleurDuJoueur(couleurEnnemi)]
                 echiquier[positionDepartX, positionDepartY] = ['vide', 'incolore']
                 if (piece[1] == 'blanc' and not roiBlancEnEchec()) or (piece[1] == 'noir' and not roiNoirEnEchec()):
                     selection.fill((0, 0, 255, 80))
                     ecran.blit(selection,((positionDepartX - nombreDeDeplacementSurLaGaucheEtLeBas) * TailleCases, (positionDepartY + nombreDeDeplacementSurLaGaucheEtLeBas) * TailleCases))
-                    echiquier[positionDepartX - (nombreDeDeplacementSurLaGaucheEtLeBas ), positionDepartY + nombreDeDeplacementSurLaGaucheEtLeBas ] = savePieceCaseArrive
+                    echiquier[positionDepartX - (nombreDeDeplacementSurLaGaucheEtLeBas), positionDepartY + nombreDeDeplacementSurLaGaucheEtLeBas ] = savePieceCaseArrive
 
                     return False
                 elif (piece[1] == 'blanc' and roiBlancEnEchec()) or (piece[1] == 'noir' and roiNoirEnEchec()):
@@ -634,8 +634,8 @@ def casesPossibles (piece, positionDepartX, positionDepartY, couleurEnnemi) :
 
             while dansLEchiquier(positionDepartX + nombreDeDeplacementSurLaDroiteEtLeBas + 1, positionDepartY + nombreDeDeplacementSurLaDroiteEtLeBas + 1) and (echiquier[positionDepartX + nombreDeDeplacementSurLaDroiteEtLeBas+1, positionDepartY+nombreDeDeplacementSurLaDroiteEtLeBas+1][1]!= changeCouleurDuJoueur(couleurEnnemi) and echiquier[positionDepartX + nombreDeDeplacementSurLaDroiteEtLeBas, positionDepartY+ nombreDeDeplacementSurLaDroiteEtLeBas][1]!= couleurEnnemi):
                 nombreDeDeplacementSurLaDroiteEtLeBas += 1
-                savePieceCaseArrive = echiquier[positionDepartX + nombreDeDeplacementSurLaDroiteEtLeBas + 1, positionDepartY + nombreDeDeplacementSurLaDroiteEtLeBas + 1]
-                echiquier[positionDepartX + nombreDeDeplacementSurLaDroiteEtLeBas + 1, positionDepartY + nombreDeDeplacementSurLaDroiteEtLeBas + 1] = ['reine', changeCouleurDuJoueur(couleurEnnemi)]
+                savePieceCaseArrive = echiquier[positionDepartX + nombreDeDeplacementSurLaDroiteEtLeBas, positionDepartY + nombreDeDeplacementSurLaDroiteEtLeBas]
+                echiquier[positionDepartX + nombreDeDeplacementSurLaDroiteEtLeBas, positionDepartY + nombreDeDeplacementSurLaDroiteEtLeBas] = ['reine', changeCouleurDuJoueur(couleurEnnemi)]
                 echiquier[positionDepartX, positionDepartY] = ['vide', 'incolore']
                 if (piece[1] == 'blanc' and not roiBlancEnEchec()) or (piece[1] == 'noir' and not roiNoirEnEchec()):
                     selection.fill((0, 0, 255, 80))
@@ -691,7 +691,7 @@ def casesPossibles (piece, positionDepartX, positionDepartY, couleurEnnemi) :
 
 
 #Roi
-    if piece[0] == 'roi' :
+    if piece[0] == 'roi':
         if dansLEchiquier(positionDepartX+1,positionDepartY) and echiquier[positionDepartX+1, positionDepartY][1] != changeCouleurDuJoueur(couleurEnnemi):
             savePieceCaseArrive = echiquier[positionDepartX+1, positionDepartY]
             echiquier[positionDepartX+1, positionDepartY] = ['roi', changeCouleurDuJoueur(couleurEnnemi)]
